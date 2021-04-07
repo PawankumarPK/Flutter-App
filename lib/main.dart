@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(new MyApp());
@@ -38,10 +39,20 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(8.0),
         child: new Center(
           child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Text(myText),
+              new Text(
+                myText,
+                style: new TextStyle(fontSize: 20.0),
+              ),
               new RaisedButton(
-                child: new Text("Click"),
+                child: new Text(
+                  "Click",
+                  style: new TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                color: Colors.blueAccent,
                 onPressed: changeText,
               )
             ],
