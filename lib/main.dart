@@ -26,10 +26,21 @@ class _LoginPageState extends State<LoginPage> {
     return new Scaffold(
       backgroundColor: Colors.green,
       body: new Stack(
+        fit: StackFit.expand,
         children: <Widget>[
           new Image(
-              image: new AssetImage("assets/profile.jpeg"),
-              fit: BoxFit.cover
+            image: new AssetImage("assets/profile.jpeg"),
+            fit: BoxFit.cover,
+            color: Colors.black87,
+            colorBlendMode: BlendMode.darken,
+          ),
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new FlutterLogo(
+                size: 100.0,
+              )
+            ],
           )
         ],
       ),
