@@ -11,6 +11,12 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: "My App",
       home: new HomePage(),
+      theme: new ThemeData(
+        primarySwatch: Colors.green,
+        brightness: Brightness.light,
+        accentColor: Colors.red
+
+      ),
     );
   }
 }
@@ -26,10 +32,9 @@ class _HomePageState extends State<HomePage> {
   void changeText() {
     setState(() {
       if (myText.startsWith("H"))
-        myText = "Welcome to my app";
-      else {
+        myText = "Welcome to my Pawan";
+      else
         myText = "Hello World";
-      }
     });
   }
 
