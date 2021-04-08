@@ -20,7 +20,23 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
+  AnimationController _iconAnimationController;
+  Animation<double> _iconAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _iconAnimationController = new AnimationController(
+        vsync: this, duration: new Duration(milliseconds: 500));
+    _iconAnimation = new CurvedAnimation(
+        parent: _iconAnimationController, curve: Curves.bounceOut);
+    _iconAnimation.addListener(() => this.setState(() {}));
+    _iconAnimationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -38,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new FlutterLogo(
-                size: 100.0,
+                size: _iconAnimation.value * 100,
               )
             ],
           )
