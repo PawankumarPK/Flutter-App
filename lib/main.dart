@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(new MyApp());
@@ -9,62 +9,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "My App",
-      home: new HomePage()   ,
-      theme: new ThemeData(
-        primarySwatch: Colors.green,
-        brightness: Brightness.light,
-        accentColor: Colors.red
-
-      ),
+      home: new LoginPage(),
+      theme: new ThemeData(primarySwatch: Colors.red),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  String myText = "Hello World";
-
-  void changeText() {
-    setState(() {
-      if (myText.startsWith("H"))
-        myText = "Welcome to my Pawan";
-      else
-        myText = "Hello World";
-    });
-  }
-
-  Widget _bodyWidget() {
-    //Container is for give padding ,margin ,bgcolor etc
-    return new Container(
-        padding: const EdgeInsets.all(8.0),
-        child: new Center(
-          child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Text(
-                myText,
-                style: new TextStyle(fontSize: 20.0),
-              ),
-            ],
-          ),
-        ));
-  }
-
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(title: new Text("Home Page")),
-        body: _bodyWidget(),
-      floatingActionButton: new FloatingActionButton(
-        child: new Icon(Icons.add),
-          onPressed: changeText
+      backgroundColor: Colors.green,
+      body: new Stack(
+        children: <Widget>[
+          new Image(
+              image: new AssetImage("assets/profile.jpeg"),
+              fit: BoxFit.cover
+          )
+        ],
       ),
-
     );
   }
 }
