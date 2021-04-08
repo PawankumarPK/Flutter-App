@@ -50,16 +50,6 @@ class _HomePageState extends State<HomePage> {
                 myText,
                 style: new TextStyle(fontSize: 20.0),
               ),
-              new RaisedButton(
-                child: new Text(
-                  "Click",
-                  style: new TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                color: Colors.blueAccent,
-                onPressed: changeText,
-              )
             ],
           ),
         ));
@@ -68,6 +58,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(title: new Text("Home Page")), body: _bodyWidget());
+        appBar: new AppBar(title: new Text("Home Page")),
+        body: _bodyWidget(),
+      floatingActionButton: new FloatingActionButton(
+        child: new Icon(Icons.add),
+          onPressed: changeText
+      ),
+
+    );
   }
 }
